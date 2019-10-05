@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,11 +34,12 @@ public class PenDrive extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_pen_drive, container, false);
         recyclerView =view.findViewById(R.id.recyclerview1);
-        recyclerView1 =view.findViewById(R.id.recyclerview2);
+      //  recyclerView1 =view.findViewById(R.id.recyclerview2);
         recyclerView.setHasFixedSize(true);
-        recyclerView1.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView1.setLayoutManager(new LinearLayoutManager(getActivity()));
+   //     recyclerView1.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        recyclerView.setNestedScrollingEnabled(false);
+   //     recyclerView1.setLayoutManager(new LinearLayoutManager(getActivity()));
         list = new ArrayList<>();
         loadItems();
         return view;
@@ -57,7 +59,7 @@ public class PenDrive extends Fragment {
                         }
                         ItemsAdapter adapter = new ItemsAdapter(getActivity(), list);
                         recyclerView.setAdapter(adapter);
-                        recyclerView1.setAdapter(adapter);
+                    //    recyclerView1.setAdapter(adapter);
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getActivity(),"Error"+e.toString(),Toast.LENGTH_SHORT).show();

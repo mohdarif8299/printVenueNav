@@ -5,11 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-        <FrameLayout
+
+      <androidx.core.widget.NestedScrollView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+          <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/container"
             ></FrameLayout>
+      </androidx.core.widget.NestedScrollView>
     <ExpandableListView
         android:layout_width="300dp"
         android:layout_height="match_parent"

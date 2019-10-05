@@ -14,83 +14,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        
-                        android:text="T-Shirt"
-                          />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Poster"
-                        android:layout_gravity="center"
-                         
-                        android:layout_marginRight="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Combo"
-                        android:layout_gravity="center"
-                         
-                        android:layout_marginRight="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Collage"
-                        android:layout_gravity="center"
-                         
-                        android:layout_marginRight="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CushionKey"
-                        android:layout_gravity="center"
-                         
-                        android:layout_marginRight="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Chain Canvas"
-                        android:layout_gravity="center"
-                         
-                        android:layout_marginRight="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pen Drives"
-                        android:layout_gravity="center"
-                         
-                        android:layout_marginRight="10dp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Business Cards"
-                        android:layout_gravity="center"
-                         
-                        android:layout_marginRight="10dp"
-                        />
-                </LinearLayout>
-            </HorizontalScrollView>
+            <include layout="@layout/horizontal_scroll_items_layout"/>
             <com.smarteist.autoimageslider.SliderLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/linear_layout_height"
@@ -110,50 +34,8 @@
                     android:text="Shop By TRENDING"
                     android:layout_marginLeft="10dp"
                     android:textSize="16dp"
-                  
                     />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/linear_layout_height"
-                    android:orientation="horizontal"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:paddingLeft="15dp"
-                    android:background="#f0f0f0"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:layout_gravity="center"
-                        >
-                        <androidx.recyclerview.widget.RecyclerView
-                            xmlns:android="http://schemas.android.com/apk/res/android"
-                            xmlns:tools="http://schemas.android.com/tools"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/recyclerview1"
-                            android:layout_gravity="center"
-                          >
-                        </androidx.recyclerview.widget.RecyclerView>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        >
-                        <androidx.recyclerview.widget.RecyclerView
-                            xmlns:android="http://schemas.android.com/apk/res/android"
-                            xmlns:tools="http://schemas.android.com/tools"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/recyclerview2"
-                            android:layout_gravity="center"
-                           >
-                        </androidx.recyclerview.widget.RecyclerView>
-
-                </LinearLayout>
-                </LinearLayout>
+                   <include layout="@layout/recycler_view_layout"/>
                     <!--<LinearLayout-->
                         <!--android:layout_width="@dimen/linear_layout_width"-->
                         <!--android:layout_height="match_parent"-->

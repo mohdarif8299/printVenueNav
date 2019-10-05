@@ -11,9 +11,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.myapplication.Fragment.HomeFragment;
+import com.example.myapplication.Fragment.PenDrive;
+import com.example.myapplication.Fragment.PensFragment;
 
 import java.util.List;
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsViewHolder> {
@@ -37,8 +43,20 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsViewHol
         Glide.with(context).load(items.getUrl()).into(itemViewHolder.item_image);
         itemViewHolder.item_name.setText(items.getName());
         itemViewHolder.item_price.setText("Rs "+items.getPrice()+".00");
-        itemViewHolder.linearLayout.setOnClickListener(v-> Toast.makeText(context,items.getName(),Toast.LENGTH_SHORT).show());
+        itemViewHolder.linearLayout.setOnClickListener(v->{
+            if(items.getName().equals("Pen Drives")) {
+                FragmentTransaction fragmentTransaction = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, new PenDrive());
+                fragmentTransaction.commit();
+            }
+            if (items.getName().equals("Pens")) {
+                FragmentTransaction fragmentTransaction = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, new PensFragment());
+                fragmentTransaction.commit();
+            }
+        });
         itemViewHolder.progressBar.setVisibility(View.GONE);
+
     }
     @Override
     public int getItemCount() { return list.size(); }
